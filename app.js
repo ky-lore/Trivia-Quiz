@@ -28,7 +28,7 @@ axios.get(`https://opentdb.com/api.php?amount=20&category=28&difficulty=easy`)
 
 
       let questionElem = document.createElement('h5')
-      questionElem.innerHTML = `${question.question}`
+      questionElem.innerHTML = `<hr>${question.question}`
       document.getElementById("questions").append(questionElem)
       let answerElemList = document.createElement('ol')
       document.getElementById("questions").append(answerElemList)
