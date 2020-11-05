@@ -21,6 +21,16 @@
   .black-text {
     color: #3d3239;
   }
+
+  .chosen {
+    color: rgb(248, 238, 223);
+    background-color:mediumseagreen;
+  }
+
+  .u-wrong {
+    color: rgb(248, 238, 223);
+    background-color:maroon;
+  }
 </style>
 
 <body id="nightBg">
@@ -87,15 +97,24 @@
         })
 
         var score = 0;
+        
         document.addEventListener('click', event => {
-          //console.log(event.target.textContent)
+          //var firstTry = true;
+          console.log(event.target)
           //console.log(res.data)
 
           if (correctAnswers.includes(event.target.textContent)) {
             console.log('nice')
-            score++
+            //if (firstTry === true) {
+              score++
+            //}
             console.log(score)
-          } else { console.log('nah') }
+            event.target.className = "list-group-item black-text chosen"
+          } else if (event.target.className === "list-group-item black-text") { 
+            console.log('nah')
+            event.target.className = "list-group-item black-text u-wrong"
+            //firstTry = false;
+          }
 
           if (event.target.classList.contains('btn-success')) {
             var scoreTally = document.getElementById("score");
